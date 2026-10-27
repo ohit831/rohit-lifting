@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <title>Rohit Lifting | Train With Purpose</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">RL</span><span>ROHIT <b>LIFTING</b></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    <nav id="nav">
+      <a href="#workouts">Workouts</a><a href="#planner">Planner</a><a href="#diet">Nutrition</a><a href="#progress">Progress</a>
+      <button class="btn btn-outline" id="authButton">Login / Sign up</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">DISCIPLINE • CONSISTENCY • PROGRESS</p>
+        <h1>BUILD YOUR<br><span>STRONGER</span> SELF.</h1>
+        <p class="hero-copy">Your training, nutrition and progress in one place. Make every rep count.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#planner">Build my plan <span>↗</span></a><a class="text-link" href="#workouts">Explore exercises ↓</a></div>
+        <div class="hero-stats"><div><strong>06</strong><small>DAY SPLIT</small></div><div><strong>01</strong><small>GOAL: YOU</small></div><div><strong>100%</strong><small>COMMITMENT</small></div></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-glow"></div>
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1000&q=85" alt="Athlete training in a gym">
+        <div class="image-label"><span class="live-dot"></span> YOUR NEXT REP STARTS NOW</div>
+      </div>
+    </section>
+
+    <section class="section" id="workouts">
+      <div class="section-head"><div><p class="eyebrow">TRAIN SMARTER</p><h2>Exercise <span>library</span></h2></div><p class="muted">Choose an exercise to see its target muscles and training cues.</p></div>
+      <div class="filter-row"><input id="exerciseSearch" type="search" placeholder="Search exercises..." aria-label="Search exercises"><select id="muscleFilter" aria-label="Filter by muscle"><option value="all">All muscle groups</option><option>Chest</option><option>Back</option><option>Legs</option><option>Shoulders</option><option>Arms</option><option>Core</option></select></div>
+      <div class="exercise-grid" id="exerciseGrid"></div>
+    </section>
+
+    <section class="section split-section" id="planner">
+      <div><p class="eyebrow">YOUR WEEK, ORGANIZED</p><h2>Workout <span>planner</span></h2><p class="muted">A starter six-day split. Adjust it to your recovery, experience and schedule.</p>
+        <div class="planner-controls"><label for="daySelect">Training day</label><select id="daySelect"><option>Day 1 — Chest + Triceps</option><option>Day 2 — Back + Biceps</option><option>Day 3 — Legs + Shoulders</option><option>Day 4 — Chest + Triceps</option><option>Day 5 — Back + Biceps</option><option>Day 6 — Legs + Shoulders</option><option>Day 7 — Rest / Recovery</option></select><div id="dayPlan" class="day-plan"></div><button class="btn btn-primary" id="completeWorkout">Mark workout complete ✓</button><p id="workoutFeedback" class="feedback" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="planner-card"><div class="card-top"><span class="tag">WEEKLY FOCUS</span><span>↗</span></div><h3>Progress is built<br>one session at a time.</h3><div class="progress-line"><span id="weeklyBar"></span></div><p class="muted"><b id="weeklyCount">0</b> of 6 training sessions logged this week</p><div class="mini-metrics"><div><small>CONSISTENCY</small><strong id="consistency">0%</strong></div><div><small>REST DAY</small><strong>1 / week</strong></div></div></div>
+    </section>
+
+    <section class="section nutrition-section" id="diet">
+      <div class="section-head"><div><p class="eyebrow">FUEL YOUR TRAINING</p><h2>Nutrition <span>planner</span></h2></div><p class="muted">Example targets only. Adjust for your body, goal and activity level.</p></div>
+      <div class="nutrition-grid">
+        <div class="nutrition-card"><small>DAILY CALORIES</small><strong><input id="calorieTarget" type="number" value="2850" min="800" max="7000" aria-label="Daily calorie target"> <em>kcal</em></strong><div class="nutri-bar"><span style="width:70%"></span></div><p>Set a target that suits your goal.</p></div>
+        <div class="nutrition-card"><small>PROTEIN TARGET</small><strong><input id="proteinTarget" type="number" value="145" min="20" max="400" aria-label="Daily protein target"> <em>g</em></strong><div class="nutri-bar"><span style="width:65%"></span></div><p>Spread protein across meals.</p></div>
+        <div class="nutrition-card"><small>MEALS LOGGED</small><strong id="mealCount">0 <em>/ 4</em></strong><div class="nutri-bar"><span id="mealBar" style="width:0%"></span></div><p>Tick meals as you complete them.</p></div>
+      </div>
+      <div class="meal-list" id="mealList">
+        <label><input type="checkbox" value="Breakfast"> Breakfast — oats / eggs / fruit</label>
+        <label><input type="checkbox" value="Lunch"> Lunch — rice or roti, dal, vegetables, protein</label>
+        <label><input type="checkbox" value="Snack"> Snack — curd / milk / fruit / nuts</label>
+        <label><input type="checkbox" value="Dinner"> Dinner — protein source, carbs and vegetables</label>
+      </div>
+      <p class="fine-print">Nutrition note: this is a general planning template, not medical advice. Use food portions and calorie targets that fit you.</p>
+    </section>
+
+    <section class="section progress-section" id="progress">
+      <div class="section-head"><div><p class="eyebrow">MEASURE WHAT MATTERS</p><h2>Your <span>progress</span></h2></div><p class="muted">Logs are saved in this browser on this device.</p></div>
+      <div class="progress-grid">
+        <form class="progress-form" id="progressForm"><label>Date<input id="logDate" type="date" required></label><label>Body weight (kg)<input id="weightInput" type="number" min="20" max="400" step="0.1" placeholder="e.g. 69.0" required></label><label>Note (optional)<textarea id="noteInput" rows="3" placeholder="Energy, strength, sleep..."></textarea></label><button class="btn btn-primary" type="submit">Save progress</button><p class="feedback" id="progressFeedback" aria-live="polite"></p></form>
+        <div class="progress-history"><div class="history-head"><h3>Recent entries</h3><button class="text-button" id="clearProgress">Clear logs</button></div><div id="progressList"><p class="muted">Your saved entries will appear here.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section coach-section" id="coach">
+      <div class="coach-intro"><p class="eyebrow">YOUR TRAINING SIDEKICK</p><h2>Ask the <span>coach</span></h2><p class="muted">Try questions about training splits, form cues or meal planning.</p><p class="fine-print">Demo mode: replies are generated from built-in tips. Connect a secure backend and AI API for real AI chat.</p></div>
+      <div class="chat-box"><div class="chat-head"><span class="live-dot"></span><div><b>Rohit Lifting Coach</b><small>TRAINING ASSISTANT • DEMO</small></div></div><div class="chat-messages" id="chatMessages"><div class="message bot">Hey! I'm your training helper. Ask me about workouts, recovery or nutrition.</div></div><form id="chatForm" class="chat-input"><input id="chatInput" placeholder="Ask your coach..." maxlength="400" autocomplete="off" required><button aria-label="Send message">➤</button></form></div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#home"><span class="brand-mark">RL</span><span>ROHIT <b>LIFTING</b></span></a><p>Train with purpose. Recover with intent. Repeat.</p><small>© <span id="year"></span> Rohit Lifting • Built for consistency</small></footer>
+
+  <dialog id="authDialog" class="modal"><form id="authForm" method="dialog"><button type="button" class="modal-close" id="closeAuth" aria-label="Close">×</button><p class="eyebrow">MEMBER ACCESS</p><h2 id="authTitle">Welcome <span>back</span></h2><p class="muted">Demo account only — do not use a real password.</p><label>Name <input id="authName" placeholder="Your name"></label><label>Email <input id="authEmail" type="email" placeholder="you@example.com" required></label><label>Password <input id="authPassword" type="password" minlength="4" placeholder="At least 4 characters" required></label><button class="btn btn-primary full-width" type="submit" id="authSubmit">Sign in</button><button class="text-button switch-auth" type="button" id="switchAuth">New here? Create an account</button><p class="fine-print">This demo stores a simple profile locally. It is not secure authentication.</p><p class="feedback" id="authFeedback"></p></form></dialog>
+  <script src="script.js"></script>
+</body>
+</html>
